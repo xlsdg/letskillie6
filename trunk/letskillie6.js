@@ -11,7 +11,9 @@ var html = '<div id="letskillie6"><div class="r4"></div><div class="r2"></div><d
 
 function cookie(name, value, day) {
 	if (typeof value != 'undefined') {
-		day = day || 7;
+		if(typeof LETSKILLIE6_DELAY != 'undefined' && LETSKILLIE6_DELAY != null) {
+			day = LETSKILLIE6_DELAY;
+		}
 		if (value === null) {
 			value = '';
 		}
