@@ -10,7 +10,7 @@
 #letskillie6 .r1{margin:0 1px;}
 #letskillie6 .r2{margin:0 2px;}
 #letskillie6 .r4{margin:0 4px;}
-#letskillie6 .browsers a{background: url(icons.gif) 100% 0 no-repeat;height:16px;line-height:16px;padding-right:18px;margin-right:10px;display:block;float:right;font-size:11px;}
+#letskillie6 .browsers a{background: url(icons.gif) 100% 0 no-repeat;height:16px;line-height:16px;padding-right:18px;margin-right:10px;display:block;float:right;font-size:11px;font-weight:normal;}
 #letskillie6 a.ie8{margin-right:0;}
 #letskillie6 a.firefox{background-position: 100% -16px;}
 #letskillie6 a.opera{background-position: 100% -32px;}
