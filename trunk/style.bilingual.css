@@ -1,6 +1,6 @@
 #letskillie6,#letskillie6 div,#letskillie6 a,#letskillie6 p,#letskillie6 span{text-align:left;margin:0;padding:0;border:0;}
 #letskillie6{display:none;z-index:9999;width:340px;color:#CCC;position:absolute;bottom:10px;right:10px;line-height:145%;font-size:12px;font-family:Verdana,Tahoma,"BitStream vera Sans",Helvetica;}
-#letskillie6 p{margin-bottom:10px;line-height:20px;}
+#letskillie6 p{margin-bottom:10px;line-height:145%;}
 #letskillie6 a{color:#A8C779;text-decoration:none;font-weight:normal;}
 #letskillie6 a:hover{text-decoration:underline;}
 #letskillie6 .fixed{clear:both;}
