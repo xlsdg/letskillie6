@@ -4,7 +4,7 @@
 #letskillie6 a{color:#A8C779;text-decoration:none;}
 #letskillie6 a:hover{text-decoration:underline;}
 #letskillie6 .fixed{clear:both;}
-#letskillie6 .content{width:316px;background:#2A2A2A;padding:8px 12px;height:196px;overflow:hidden;}
+#letskillie6 .content{width:316px;background:#2A2A2A;padding:8px 12px;height:196px;overflow:hidden;font-weight:normal;}
 #letskillie6 .r1,#letskillie6 .r2,#letskillie6 .r4{background:#2A2A2A;height:1px;overflow:hidden;}
 #letskillie6 .r1{margin:0 1px;}
 #letskillie6 .r2{margin:0 2px;}
