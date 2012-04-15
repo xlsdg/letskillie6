@@ -1,3 +1,9 @@
+/**
+ * Let's Kill IE6 (http://www.neoease.com/lets-kill-ie6/)
+ * @version 2.0
+ * @author MG12 (email: wuzhao.mail@gmail.com)
+ */
+
 (function() {
 
 LetsKillIE6 = function() {
@@ -64,9 +70,11 @@ LetsKillIE6.prototype = {
 
 		if(!_self.cache.isDispose) {
 			_self.cache.dialog.style.visibility = 'hidden';
-
+alert(1);
 			clearTimeout(_self.cache.showThread);
+alert(2);
 			_self.cache.showThread = setTimeout(function () {
+alert(3);
 				_self._show({_self:_self});
 			}, 400);
 		}
