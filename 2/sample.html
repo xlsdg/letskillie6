@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Demo for Let's Kill IE6</title>
+</head>
+
+<body style="height:2000px;">
+
+<!--[if IE 6]>
+<script type="text/javascript">
+/* <[CDATA[ */
+
+function getQueryString(name) {
+    if(location.href.indexOf("?") == -1 || location.href.indexOf(name+'=') == -1) {
+        return '';
+    }
+
+    var queryString = location.href.substring(location.href.indexOf('?')+1);
+    var parameters = queryString.split('&');
+
+    var pos, paraName, paraValue;
+    for(var i=0; i<parameters.length; i++) {
+		pos = parameters[i].indexOf('=');
+        if(pos == -1) { continue; }
+        paraName = parameters[i].substring(0, pos);
+        paraValue = parameters[i].substring(pos + 1);
+
+        if(paraName == name) {
+            return unescape(paraValue.replace(/\+/g, ' '));
+        }
+    }
+    return '';
+};
+
+var LETSKILLIE6_DELAY = 0;
+
+var head = document.getElementsByTagName('head')[0];
+var node = document.createElement('script');
+var lang = getQueryString('l');
+if(lang == '') {
+	node.src = 'default.js';
+} else {
+	node.src = getQueryString('l') + '.js';
+}
+head.appendChild(node);
+
+/* ]]> */
+</script>
+<![endif]-->
+
+</body>
+</html>
