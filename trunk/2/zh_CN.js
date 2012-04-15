@@ -70,11 +70,9 @@ LetsKillIE6.prototype = {
 
 		if(!_self.cache.isDispose) {
 			_self.cache.dialog.style.visibility = 'hidden';
-alert(1);
+
 			clearTimeout(_self.cache.showThread);
-alert(2);
 			_self.cache.showThread = setTimeout(function () {
-alert(3);
 				_self._show({_self:_self});
 			}, 400);
 		}
@@ -84,13 +82,16 @@ alert(3);
 		var _self = args._self;
 		var dialog = _self.cache.dialog;
 
+alert(1);
 		var height = document.documentElement.scrollTop + document.documentElement.clientHeight - dialog.offsetHeight - 10;
 
+alert(2);
 		_self.cache.opacity = 0;
 		dialog.style.filter = 'alpha(opacity=' + _self.cache.opacity + ')';
-		dialog.style.opacity = _self.cache.opacity / 100;
+		// dialog.style.opacity = _self.cache.opacity / 100;
 		dialog.style.top = height + 'px';
 		dialog.style.visibility = 'visible';
+alert(3);
 
 		_self.cache.showThread = setInterval(function(){_self._fadeIn({_self:_self});}, 40);
 	},
@@ -111,7 +112,7 @@ alert(3);
 			clearTimeout(_self.cache.showThread);
 		}
 		dialog.style.filter = 'alpha(opacity=' + _self.cache.opacity + ')';
-		dialog.style.opacity = _self.cache.opacity / 100;
+		// dialog.style.opacity = _self.cache.opacity / 100;
 	},
 
 	_fadeOut: function(args) {
@@ -125,7 +126,7 @@ alert(3);
 			dialog.style.display = 'none';
 		}
 		dialog.style.filter = 'alpha(opacity=' + _self.cache.opacity +')';
-		dialog.style.opacity = _self.cache.opacity / 100;
+		// dialog.style.opacity = _self.cache.opacity / 100;
 	},
 
 	_loadCss: function(url, fn) {
