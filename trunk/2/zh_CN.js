@@ -82,16 +82,13 @@ LetsKillIE6.prototype = {
 		var _self = args._self;
 		var dialog = _self.cache.dialog;
 
-alert(1);
 		var height = document.documentElement.scrollTop + document.documentElement.clientHeight - dialog.offsetHeight - 10;
 
-alert(2);
 		_self.cache.opacity = 0;
 		dialog.style.filter = 'alpha(opacity=' + _self.cache.opacity + ')';
 		// dialog.style.opacity = _self.cache.opacity / 100;
 		dialog.style.top = height + 'px';
 		dialog.style.visibility = 'visible';
-alert(3);
 
 		_self.cache.showThread = setInterval(function(){_self._fadeIn({_self:_self});}, 40);
 	},
@@ -103,15 +100,19 @@ alert(3);
 	},
 
 	_fadeIn: function(args) {
+alert(11);
 		var _self = args._self;
 		var dialog = _self.cache.dialog;
 
 		_self.cache.opacity += 5;
+alert(22);
 		if(_self.cache.opacity >= 100) {
+alert(_self.cache.opacity);
 			_self.cache.opacity = 100;
 			clearTimeout(_self.cache.showThread);
 		}
 		dialog.style.filter = 'alpha(opacity=' + _self.cache.opacity + ')';
+alert(33);
 		// dialog.style.opacity = _self.cache.opacity / 100;
 	},
 
