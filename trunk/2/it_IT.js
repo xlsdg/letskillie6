@@ -186,9 +186,9 @@ LetsKillIE6.prototype = {
 (new LetsKillIE6()).init({
 	delay		:30,
 	targetId	:'letskillie6',
-	cssUrl		:'zh.css',
+	cssUrl		:'default.css',
 	html		:'<div class="letskillie6-r4"></div><div class="letskillie6-r2"></div><div class="letskillie6-r1"></div><div class="letskillie6-r1"></div><div class="letskillie6-content"><a rel="nofollow" id="letskillie6-close" href="javascript:;"></a><span class="letskillie6-pic"></span><p>' + 
-				'您正在使用 Internet Explorer 6 浏览网页，如果您<strong>升级到 Internet Explorer 8</strong> 或<strong>转换到另一款浏览器</strong>，可在本网站获得更好的浏览体验。' +
+				'Sta usando IE 6 per visualizzare la pagina in questo momento, il nostro sito pu�� lavorare meglio per voi, se si <strong>effettua l\'aggiornamento a IE 8</strong> o <strong>passare ad un altro browser</strong>.' +
 				'</p><div style="clear:both;"></div><p class="letskillie6-browsers"><a rel="nofollow" class="letskillie6-ie8" href="http://www.microsoft.com/windows/internet-explorer/">IE 8</a><a rel="nofollow" class="letskillie6-firefox" href="http://www.mozilla.com/">Firefox</a><a rel="nofollow" class="letskillie6-chrome" href="http://www.google.com/chrome/">Chrome</a><a rel="nofollow" class="letskillie6-safari" href="http://www.apple.com/safari/">Safari</a><a rel="nofollow" class="letskillie6-opera" href="http://www.opera.com/">Opera</a><div style="clear:both;"></div></p><p class="letskillie6-meta">Let\'s kill Internet Explorer 6, <a href="http://www.neoease.com/lets-kill-ie6/">insert on your website</a>.</p></div><div class="letskillie6-r1"></div><div class="letskillie6-r1"></div><div class="letskillie6-r2"></div><div class="letskillie6-r4"></div>'
 });
 
