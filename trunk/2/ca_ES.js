@@ -11,11 +11,12 @@ LetsKillIE6 = function() {
 	this.config = null;
 
 	this.cache = {
-		dialog		:null,
-		showThread	:null,
-		hideThread	:null,
-		isDispose	:false,
-		opacity		:0
+		dialog			:null,
+		showThread		:null,
+		hideThread		:null,
+		triggerThread	:null,
+		isDispose		:false,
+		opacity			:0
 	};
 };
 
@@ -71,8 +72,8 @@ LetsKillIE6.prototype = {
 		if(!_self.cache.isDispose) {
 			_self.cache.dialog.style.visibility = 'hidden';
 
-			clearTimeout(_self.cache.showThread);
-			_self.cache.showThread = setTimeout(function () {
+			clearTimeout(_self.cache.triggerThread);
+			_self.cache.triggerThread = setTimeout(function () {
 				_self._show({_self:_self});
 			}, 400);
 		}
