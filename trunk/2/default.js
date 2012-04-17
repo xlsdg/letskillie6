@@ -27,7 +27,7 @@ LetsKillIE6.prototype = {
 		var _self = this;
 
 		if(_self._getCookie(_self.config.targetId) != _self.config.targetId) {	
-			_self._loadCss(_self.config.cssUrl, function(){
+			_self._loadCss(_self.config.cssUrl, _self, function(){
 				var dialog = document.createElement('div');
 				dialog.id = _self.config.targetId;
 				dialog.innerHTML = _self.config.html;
@@ -83,11 +83,10 @@ LetsKillIE6.prototype = {
 		var _self = args._self;
 		var dialog = _self.cache.dialog;
 
-		var height = document.documentElement.scrollTop + document.documentElement.clientHeight - dialog.offsetHeight - 10;
+		var height = _self._getScrollY() + document.documentElement.clientHeight - dialog.offsetHeight - 10;
 
 		_self.cache.opacity = 0;
-		dialog.style.filter = 'alpha(opacity=' + _self.cache.opacity + ')';
-		// dialog.style.opacity = _self.cache.opacity / 100;
+		_self._setOpacity({_self:_self, element:dialog, opacity:_self.cache.opacity});
 		dialog.style.top = height + 'px';
 		dialog.style.visibility = 'visible';
 
@@ -109,8 +108,7 @@ LetsKillIE6.prototype = {
 			_self.cache.opacity = 100;
 			clearTimeout(_self.cache.showThread);
 		}
-		dialog.style.filter = 'alpha(opacity=' + _self.cache.opacity + ')';
-		// dialog.style.opacity = _self.cache.opacity / 100;
+		_self._setOpacity({_self:_self, element:dialog, opacity:_self.cache.opacity});
 	},
 
 	_fadeOut: function(args) {
@@ -123,11 +121,10 @@ LetsKillIE6.prototype = {
 			clearTimeout(_self.cache.hideThread);
 			dialog.style.display = 'none';
 		}
-		dialog.style.filter = 'alpha(opacity=' + _self.cache.opacity +')';
-		// dialog.style.opacity = _self.cache.opacity / 100;
+		_self._setOpacity({_self:_self, element:dialog, opacity:_self.cache.opacity});
 	},
 
-	_loadCss: function(url, fn) {
+	_loadCss: function(url, _self, fn) {
 		var head = document.getElementsByTagName('head')[0];
 		var node = document.createElement('link');
 		node.type = 'text/css';
@@ -135,14 +132,21 @@ LetsKillIE6.prototype = {
 		node.href = url;
 		node.media = 'screen';
 
-		node.onload = node.onreadystatechange = function(){
-			if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") {
-				node.onload = node.onreadystatechange = null; // hack for IE6 memory leak
-				fn();
-			}
-		}
+		_self._styleOnload({node:node, callback:fn, _self:_self});
 
 		head.appendChild(node);
+	},
+
+	_setOpacity: function(args) {
+		var _self = args._self;
+		var element = args.element;
+		var opacity = args.opacity;
+
+		if (/MSIE 6/i.test(navigator.userAgent)) {
+			element.style.filter = 'alpha(opacity=' + _self.cache.opacity + ')';
+		} else {
+			element.style.opacity = _self.cache.opacity / 100;
+		}
 	},
 
 	_setCookie: function(name, value, day) {
@@ -180,6 +184,72 @@ LetsKillIE6.prototype = {
 			}
 		}
 		return cookieValue;
+	},
+
+	_getScrollY: function() {
+		if(typeof window.pageYOffset != 'undefined') {
+			return window.pageYOffset;
+		}
+
+		if(typeof document.compatMode != 'undefined' && document.compatMode != 'BackCompat') {
+			return document.documentElement.scrollTop;
+		}
+
+		return document.body.scrollTop;
+	},
+
+	_styleOnload: function(args) {
+		var _self = args._self;
+		var node = args.node;
+		var callback = args.callback;
+
+		if (node.attachEvent) {
+		  node.attachEvent('onload', callback);
+		}
+		else {
+		  setTimeout(function() {
+			_self._poll({node:node, callback:callback, _self:_self});
+		  }, 0);
+		}
+	},
+
+	_poll: function(args) {
+		var _self = args._self;
+		var node = args.node;
+		var callback = args.callback;
+
+		if (callback.isCalled) {
+			return;
+		}
+
+		var isLoaded = false;
+
+		if (/webkit/i.test(navigator.userAgent)) {//webkit
+			if (node['sheet']) {
+			  isLoaded = true;
+			}
+		}else if (node['sheet']) {
+			try {
+			  if (node['sheet'].cssRules) {
+				isLoaded = true;
+			  }
+			} catch (ex) {
+			  if (ex.code === 1000) {
+				isLoaded = true;
+			  }
+			}
+		}
+
+		if (isLoaded) {
+			setTimeout(function() {
+			  callback();
+			}, 1);
+		}
+		else {
+			setTimeout(function() {
+			  _self._poll({node:node, callback:callback, _self:_self});
+			}, 1);
+		}
 	}
 
 };
