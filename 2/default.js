@@ -16,7 +16,8 @@ LetsKillIE6 = function() {
 		hideThread		:null,
 		triggerThread	:null,
 		isDispose		:false,
-		opacity			:0
+		opacity			:0,
+		dialogHeight	:0
 	};
 };
 
@@ -37,7 +38,9 @@ LetsKillIE6.prototype = {
 				_self._show({_self:_self});
 
 				window.onscroll = function(){
-					_self._reset({_self:_self});
+					if(!_self.cache.isDispose) {
+						_self._reset({_self:_self});
+					}
 				};
 
 				var closeButton = document.getElementById('letskillie6-close');
@@ -69,26 +72,29 @@ LetsKillIE6.prototype = {
 	_reset: function(args) {
 		var _self = args._self;
 
-		if(!_self.cache.isDispose) {
-			_self.cache.dialog.style.visibility = 'hidden';
+		_self.cache.dialog.style.display = 'none';
 
+		clearTimeout(_self.cache.triggerThread);
+		_self.cache.triggerThread = setTimeout(function () {
 			clearTimeout(_self.cache.triggerThread);
-			_self.cache.triggerThread = setTimeout(function () {
-				_self._show({_self:_self});
-			}, 400);
-		}
+			_self._show({_self:_self});
+		}, 400);
 	},
 
 	_show: function(args) {
 		var _self = args._self;
 		var dialog = _self.cache.dialog;
 
-		var height = _self._getScrollY() + document.documentElement.clientHeight - dialog.offsetHeight - 10;
+		if(_self.cache.dialogHeight == 0) {
+			_self.cache.dialogHeight = dialog.offsetHeight;
+		}
+		var height = _self._getScrollY() + document.documentElement.clientHeight - _self.cache.dialogHeight - 10;
 
 		_self.cache.opacity = 0;
 		_self._setOpacity({_self:_self, element:dialog, opacity:_self.cache.opacity});
 		dialog.style.top = height + 'px';
 		dialog.style.visibility = 'visible';
+		dialog.style.display = 'inline';
 
 		_self.cache.showThread = setInterval(function(){_self._fadeIn({_self:_self});}, 40);
 	},
@@ -105,8 +111,8 @@ LetsKillIE6.prototype = {
 
 		_self.cache.opacity += 5;
 		if(_self.cache.opacity >= 100) {
-			_self.cache.opacity = 100;
 			clearTimeout(_self.cache.showThread);
+			_self.cache.opacity = 100;
 		}
 		_self._setOpacity({_self:_self, element:dialog, opacity:_self.cache.opacity});
 	},
@@ -117,8 +123,8 @@ LetsKillIE6.prototype = {
 
 		_self.cache.opacity -= 10;
 		if(_self.cache.opacity <= 0) {
-			_self.cache.opacity = 0;
 			clearTimeout(_self.cache.hideThread);
+			_self.cache.opacity = 0;
 			dialog.style.display = 'none';
 		}
 		_self._setOpacity({_self:_self, element:dialog, opacity:_self.cache.opacity});
