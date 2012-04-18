@@ -211,12 +211,11 @@ LetsKillIE6.prototype = {
 		var callback = args.callback;
 
 		if (node.attachEvent) {
-		  node.attachEvent('onload', callback);
-		}
-		else {
-		  setTimeout(function() {
-			_self._poll({node:node, callback:callback, _self:_self});
-		  }, 0);
+			node.attachEvent('onload', callback);
+		} else {
+			setTimeout(function() {
+				_self._poll({node:node, callback:callback, _self:_self});
+			}, 0);
 		}
 	},
 
@@ -231,30 +230,29 @@ LetsKillIE6.prototype = {
 
 		var isLoaded = false;
 
-		if (/webkit/i.test(navigator.userAgent)) {//webkit
+		if (/webkit/i.test(navigator.userAgent)) {
 			if (node['sheet']) {
-			  isLoaded = true;
+				isLoaded = true;
 			}
-		}else if (node['sheet']) {
+		} else if (node['sheet']) {
 			try {
-			  if (node['sheet'].cssRules) {
-				isLoaded = true;
-			  }
+				if (node['sheet'].cssRules) {
+					isLoaded = true;
+				}
 			} catch (ex) {
-			  if (ex.code === 1000) {
-				isLoaded = true;
-			  }
+				if (ex.code === 1000) {
+					isLoaded = true;
+				}
 			}
 		}
 
 		if (isLoaded) {
 			setTimeout(function() {
-			  callback();
+				callback();
 			}, 1);
-		}
-		else {
+		} else {
 			setTimeout(function() {
-			  _self._poll({node:node, callback:callback, _self:_self});
+				_self._poll({node:node, callback:callback, _self:_self});
 			}, 1);
 		}
 	}
