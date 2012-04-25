@@ -40,7 +40,7 @@ var lang = getQueryString('l');
 if(lang == '') {
 	node.src = 'default.js';
 } else {
-	node.src = getQueryString('l') + '.js';
+	node.src = lang + '.js';
 }
 head.appendChild(node);
 

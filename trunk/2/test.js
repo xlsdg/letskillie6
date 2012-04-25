@@ -2,7 +2,7 @@
  * Let's Kill IE6 (http://www.neoease.com/lets-kill-ie6/)
  * @version 2.1
  * @author MG12 (email: wuzhao.mail@gmail.com)
- * @date 2012-04-17
+ * @date 2012-04-25
  */
 
 (function() {
