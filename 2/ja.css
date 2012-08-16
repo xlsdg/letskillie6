@@ -1,6 +1,6 @@
 #letskillie6,#letskillie6 div,#letskillie6 a,#letskillie6 p,#letskillie6 span{text-align:left;margin:0;padding:0;border:0;}
-#letskillie6{visibility:hidden;z-index:9999;width:350px;color:#CCC;position:absolute;right:10px;line-height:21px;font-size:11px;font-family:"MS PGothic","Osaka",Arial,sans-serif;}
-#letskillie6 p{margin-bottom:10px;line-height:1.5;}
+#letskillie6{visibility:hidden;z-index:9999;width:350px;color:#CCC;position:absolute;right:10px;line-height:1.5;font-size:12px;font-family:"MS PGothic","Osaka",Arial,sans-serif;}
+#letskillie6 p{margin-bottom:10px;line-height:21px;}
 #letskillie6 a{color:#A8C779;text-decoration:none;font-weight:normal;}
 #letskillie6 a:hover{text-decoration:underline;}
 #letskillie6 .letskillie6-content{width:326px;background:#2A2A2A;padding:8px 12px;overflow:hidden;font-weight:normal;}
