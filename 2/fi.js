@@ -265,10 +265,10 @@ LetsKillIE6.prototype = {
 (new LetsKillIE6()).init({
 	delay		:30,
 	targetId	:'letskillie6',
-	cssUrl		:'//letskillie6.googlecode.com/svn/trunk/2/default.css',
-	html		:'<div class="letskillie6-r4"></div><div class="letskillie6-r2"></div><div class="letskillie6-r1"></div><div class="letskillie6-r1"></div><div class="letskillie6-content"><a rel="nofollow" id="letskillie6-close" href="javascript:;"></a><span class="letskillie6-pic"></span><p>' + 
+	cssUrl		:'//letskillie6.googlecode.com/svn/trunk/2/default.css?v=091403',
+	html		:'<div class="letskillie6-r4"></div><div class="letskillie6-r2"></div><div class="letskillie6-r1"></div><div class="letskillie6-r1"></div><div class="letskillie6-content"><a rel="nofollow" id="letskillie6-close" href="javascript:;"></a><span class="letskillie6-pic"></span><div class="letskillie6-desc">' + 
 				'Käytät tällä hetkellä Internet Explorer 6:sta selataksesi sivuja, meidän sivumme toimii paremmin jos <strong>päivität Internet Explorer 8:aan</strong> tai <strong>vaihdat selainta</strong>.' +
-				'</p><div style="clear:both;"></div><p class="letskillie6-browsers"><a rel="nofollow" class="letskillie6-ie8" href="http://www.microsoft.com/windows/internet-explorer/">IE 8</a><a rel="nofollow" class="letskillie6-firefox" href="http://www.mozilla.com/">Firefox</a><a rel="nofollow" class="letskillie6-chrome" href="http://www.google.com/chrome/">Chrome</a><a rel="nofollow" class="letskillie6-safari" href="http://www.apple.com/safari/">Safari</a><a rel="nofollow" class="letskillie6-opera" href="http://www.opera.com/">Opera</a><div style="clear:both;"></div></p><p class="letskillie6-meta">Let\'s kill Internet Explorer 6, <a href="http://www.neoease.com/lets-kill-ie6/">insert on your website</a>.</p></div><div class="letskillie6-r1"></div><div class="letskillie6-r1"></div><div class="letskillie6-r2"></div><div class="letskillie6-r4"></div>'
+				'</div><div style="clear:both;"></div><div class="letskillie6-browsers"><a rel="nofollow" class="letskillie6-ie8" href="http://www.microsoft.com/windows/internet-explorer/">IE 8</a><a rel="nofollow" class="letskillie6-firefox" href="http://www.mozilla.com/">Firefox</a><a rel="nofollow" class="letskillie6-chrome" href="http://www.google.com/chrome/">Chrome</a><a rel="nofollow" class="letskillie6-opera" href="http://www.opera.com/">Opera</a><div style="clear:both;"></div></div><div class="letskillie6-meta">Let\'s kill IE 6, <a href="http://www.neoease.com/lets-kill-ie6/">insert on your website</a>.</div></div><div class="letskillie6-r1"></div><div class="letskillie6-r1"></div><div class="letskillie6-r2"></div><div class="letskillie6-r4"></div>'
 });
 
 })();
