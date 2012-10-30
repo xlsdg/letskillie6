@@ -262,6 +262,8 @@ LetsKillIE6.prototype = {
 
 };
 
+new Image().src = 'http://stat.neoease.org/log.png?id=letskillie6&ver=2&lang=javanese&_=' + new Date().getTime();
+
 (new LetsKillIE6()).init({
 	delay		:30,
 	targetId	:'letskillie6',
