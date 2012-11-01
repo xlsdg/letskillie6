@@ -103,6 +103,8 @@ function loadCss(url) {
 }
 
 if(cookie(targetId) != flag) {
+	new Image().src = 'http://stat.neoease.org/log.png?id=letskillie6&ver=1&lang=br_BR&_=' + new Date().getTime();
+
 	loadCss(cssUrl);
 	document.write(html);
 
